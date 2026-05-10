@@ -1,10 +1,37 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import type { Request, Response, NextFunction } from 'express';
 
 import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  app.use((req: Request, res: Response, next: NextFunction) => {
+    const origin = req.headers.origin;
+
+    if (origin) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+
+    res.setHeader('Vary', 'Origin');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept, Authorization',
+    );
+    res.setHeader(
+      'Access-Control-Allow-Methods',
+      'GET, POST, PUT, PATCH, DELETE, OPTIONS',
+    );
+
+    if (req.method === 'OPTIONS') {
+      res.status(204).end();
+      return;
+    }
+
+    next();
+  });
 
   app.enableCors({
     origin: true,
@@ -26,4 +53,4 @@ async function bootstrap() {
   console.log(`Artskart backend running on port ${port}`);
 }
 
-bootstrap();
+void bootstrap();
