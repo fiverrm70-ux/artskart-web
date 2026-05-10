@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f3eae3;
+
+  --header: #111210;
+
+  --card: #fffaf6;
+
+  --gold: #c3976a;
+
+  --button: #a77833;
+
+  --button-hover: #916728;
+
+  --text: #1f1a17;
+
+  --white: #ffffff;
+
+  --text-light: #74685d;
+
+  --border: rgba(167, 120, 51, 0.14);
+
+  --success: #7aa37a;
+
+  --danger: #b85c52;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: min(1400px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.section {
+  padding: 90px 0;
+}
+
+.gold-text {
+  color: var(--gold);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page-title {
+  font-size: clamp(38px, 6vw, 68px);
+  line-height: 1.05;
+  font-weight: 800;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.section-description {
+  margin-top: 18px;
+  color: var(--text-light);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.premium-btn {
+  border: none;
+  background: var(--button);
+  color: var(--white);
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.premium-btn:hover {
+  background: var(--button-hover);
+  transform: translateY(-2px);
+}
+
+.premium-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+.outline-btn {
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.outline-btn:hover {
+  background: var(--gold);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090909;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 20px;
+}

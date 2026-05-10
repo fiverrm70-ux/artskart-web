@@ -1,0 +1,589 @@
+.b2bPage {
+  background: #f6efe8;
+  color: #15120e;
+}
+
+.hero {
+  min-height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  background: #fbf7f1;
+}
+
+.heroContent {
+  min-height: 560px;
+  padding: 70px 7vw 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heroContent span,
+.sectionTitle span,
+.materialContent span,
+.infoBlocks span,
+.enquiryContent span {
+  color: #a77833;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.heroContent h1 {
+  max-width: 620px;
+  margin: 18px 0 18px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(52px, 6vw, 88px);
+  font-weight: 500;
+  line-height: 0.96;
+}
+
+.heroTags {
+  margin: 0 0 20px;
+  color: #a77833;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.heroTags b {
+  padding: 0 12px;
+  color: rgba(167, 120, 51, 0.55);
+}
+
+.heroText {
+  max-width: 560px;
+  color: rgba(21, 18, 14, 0.72);
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.heroActions a,
+.collectionActions a,
+.collectionActions button,
+.enquiryForm button {
+  min-height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 28px;
+  border-radius: 0;
+  font-size: 13px;
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.heroActions a:first-child,
+.collectionActions a,
+.enquiryForm button {
+  border: 1px solid #111210;
+  background: #111210;
+  color: #fff;
+}
+
+.heroActions a:last-child,
+.collectionActions button {
+  border: 1px solid rgba(17, 18, 16, 0.28);
+  background: transparent;
+  color: #111210;
+}
+
+.accessNote {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  color: rgba(21, 18, 14, 0.68);
+  font-weight: 800;
+}
+
+.accessNote svg {
+  color: #a77833;
+}
+
+.heroVisual {
+  position: relative;
+  height: 560px;
+  min-height: 560px;
+  overflow: hidden;
+  background: #e8ded2;
+}
+
+.heroVisual > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.floatingFrame {
+  position: absolute;
+  right: 12%;
+  bottom: 12%;
+  width: 260px;
+  height: 340px;
+  padding: 14px;
+  background: #111210;
+  box-shadow: 0 26px 60px rgba(17, 18, 16, 0.32);
+}
+
+.floatingFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modelsSection {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 44px 20px 36px;
+  text-align: center;
+}
+
+.sectionTitle h2,
+.materialContent h2,
+.partnerBox h2,
+.privateBox h2,
+.collectionStrip h2,
+.enquiryContent h2 {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(34px, 4vw, 50px);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.sectionTitle p {
+  margin: 10px 0 0;
+  color: rgba(21, 18, 14, 0.62);
+}
+
+.modelGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 34px;
+}
+
+.modelCard {
+  min-height: 250px;
+  padding: 34px 24px;
+  border: 1px solid rgba(17, 18, 16, 0.1);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.modelCard div {
+  width: 66px;
+  height: 66px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 22px;
+  border: 2px solid #c3976a;
+  border-radius: 999px;
+  color: #a77833;
+  font-size: 28px;
+}
+
+.modelCard h3 {
+  margin: 0 0 10px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 22px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.modelCard p {
+  margin: 0;
+  color: rgba(21, 18, 14, 0.62);
+  line-height: 1.65;
+}
+
+.advantagesStrip {
+  max-width: 1240px;
+  margin: 0 auto 34px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background: #111719;
+  color: #fff;
+}
+
+.advantagesStrip div {
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 22px;
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+  text-align: center;
+  font-weight: 900;
+}
+
+.advantagesStrip svg {
+  color: #c3976a;
+}
+
+.materialsSection {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+  padding: 0 20px 24px;
+}
+
+.materialContent,
+.materialImage,
+.infoBlocks article,
+.partnerBox,
+.privateBox {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(17, 18, 16, 0.08);
+}
+
+.materialContent {
+  padding: 38px;
+}
+
+.materialContent h2 {
+  margin-top: 8px;
+  max-width: 780px;
+}
+
+.materialGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-top: 34px;
+}
+
+.materialGrid div {
+  padding: 22px;
+  background: rgba(17, 18, 16, 0.04);
+}
+
+.materialGrid strong {
+  font-size: 17px;
+  text-transform: uppercase;
+}
+
+.materialGrid p {
+  margin: 8px 0 0;
+  color: rgba(21, 18, 14, 0.62);
+  line-height: 1.65;
+}
+
+.materialImage {
+  overflow: hidden;
+}
+
+.materialImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.infoBlocks {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 0 20px 24px;
+}
+
+.infoBlocks article {
+  padding: 30px;
+  min-height: 260px;
+}
+
+.infoBlocks h3 {
+  margin: 12px 0 16px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.infoBlocks ul,
+.checkList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.infoBlocks li {
+  color: rgba(21, 18, 14, 0.68);
+  line-height: 1.8;
+}
+
+.infoBlocks li::before {
+  content: '•';
+  margin-right: 8px;
+  color: #a77833;
+}
+
+.operationsSection {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  padding: 0 20px 24px;
+}
+
+.operationsSection div {
+  padding: 30px;
+  border: 1px solid rgba(17, 18, 16, 0.08);
+  background: #fffaf4;
+  text-align: center;
+}
+
+.operationsSection svg {
+  color: #a77833;
+  font-size: 28px;
+}
+
+.operationsSection strong {
+  display: block;
+  margin-top: 14px;
+}
+
+.operationsSection p {
+  color: rgba(21, 18, 14, 0.58);
+  line-height: 1.6;
+}
+
+.partnerSection {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 0.8fr 1fr;
+  gap: 18px;
+  padding: 0 20px 28px;
+}
+
+.partnerBox,
+.privateBox {
+  padding: 34px;
+}
+
+.checkList {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.checkList span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(21, 18, 14, 0.72);
+  font-weight: 800;
+}
+
+.checkList svg {
+  color: #a77833;
+}
+
+.privateBox p {
+  color: rgba(21, 18, 14, 0.66);
+  line-height: 1.8;
+}
+
+.collectionStrip {
+  max-width: 1240px;
+  margin: 0 auto 34px;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 220px;
+  gap: 24px;
+  align-items: center;
+  padding: 26px;
+  background: #111719;
+  color: #fff;
+}
+
+.collectionStrip p {
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.7;
+}
+
+.collectionImages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.collectionImages img {
+  width: 100%;
+  height: 94px;
+  object-fit: cover;
+}
+
+.collectionActions {
+  display: grid;
+  gap: 12px;
+}
+
+.collectionActions a {
+  background: #a77833;
+  border-color: #a77833;
+}
+
+.collectionActions button {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.38);
+}
+
+.enquirySection {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 28px;
+  padding: 42px 20px 90px;
+}
+
+.enquiryContent {
+  padding-top: 30px;
+}
+
+.enquiryContent p {
+  color: rgba(21, 18, 14, 0.66);
+  line-height: 1.85;
+}
+
+.contactStrip {
+  display: grid;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.contactStrip div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #15120e;
+  font-weight: 900;
+}
+
+.contactStrip svg {
+  color: #a77833;
+}
+
+.enquiryForm {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  padding: 34px;
+  background: #fffaf4;
+  border: 1px solid rgba(17, 18, 16, 0.08);
+  box-shadow: 0 24px 70px rgba(45, 31, 18, 0.1);
+}
+
+.enquiryForm label {
+  display: grid;
+  gap: 8px;
+  color: #15120e;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.enquiryForm input,
+.enquiryForm select,
+.enquiryForm textarea {
+  width: 100%;
+  min-height: 52px;
+  border: 1px solid rgba(17, 18, 16, 0.14);
+  background: #fff;
+  padding: 14px 16px;
+  outline: none;
+  color: #15120e;
+  font: inherit;
+}
+
+.enquiryForm textarea {
+  resize: vertical;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 1024px) {
+  .hero,
+  .materialsSection,
+  .enquirySection {
+    grid-template-columns: 1fr;
+  }
+
+  .heroVisual {
+    height: 380px;
+    min-height: 380px;
+  }
+
+  .modelGrid,
+  .operationsSection {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .advantagesStrip,
+  .infoBlocks,
+  .partnerSection,
+  .collectionStrip {
+    grid-template-columns: 1fr;
+  }
+
+  .materialsSection {
+    padding-bottom: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroContent {
+    padding: 90px 22px 46px;
+  }
+
+  .heroContent h1 {
+    font-size: 54px;
+  }
+
+  .heroTags b {
+    padding: 0 5px;
+  }
+
+  .floatingFrame {
+    width: 180px;
+    height: 250px;
+  }
+
+  .modelGrid,
+  .operationsSection,
+  .materialGrid,
+  .enquiryForm {
+    grid-template-columns: 1fr;
+  }
+
+  .full {
+    grid-column: auto;
+  }
+
+  .enquiryForm {
+    padding: 24px;
+  }
+
+  .collectionImages {
+    grid-template-columns: 1fr;
+  }
+}
