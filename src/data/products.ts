@@ -10,6 +10,8 @@ export type Product = {
   gallery: string[];
   edition: string;
   stock: number;
+  stockLeft?: number;
+  size?: string;
   description: string;
   story: string;
   details: {

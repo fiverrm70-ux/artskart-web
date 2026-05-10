@@ -53,6 +53,8 @@ const mapApiProductToWishlistProduct = (product: ApiProduct): Product => {
     edition: '100 Prints Only',
     stock: product.stock,
     description: product.shortDescription || product.description,
+    size: product.sku || product.category?.name || 'Fine Art Print',
+    stockLeft: product.stock,
     story:
       product.description ||
       'A premium artwork curated for refined interiors and collector spaces.',

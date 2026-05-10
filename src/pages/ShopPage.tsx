@@ -7,6 +7,7 @@ import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 import { useLiveCurrency } from '../utils/useLiveCurrency';
 import { getAllProducts, type ApiProduct } from '../lib/productsApi';
+import type { Product } from '../data/products';
 
 import styles from './ShopPage.module.css';
 
@@ -127,6 +128,36 @@ const mapApiProduct = (product: ApiProduct): ShopProduct => {
   };
 };
 
+function toFullProduct(product: ShopProduct): Product {
+  return {
+    id: product.id,
+    title: product.title,
+    slug: product.slug,
+    image: product.image,
+    gallery: [product.image],
+    edition: product.edition,
+    size: product.size,
+    stock: product.stock,
+    stockLeft: product.stock,
+    description: product.description,
+    basePriceUsd: product.basePriceUsd,
+    category: product.category,
+    story:
+      product.description ||
+      'A premium artwork curated for refined interiors and collector spaces.',
+    details: [
+      { label: 'Artwork Type', value: 'Premium Fine Art Print' },
+      { label: 'Collection', value: product.category },
+      { label: 'Edition', value: product.edition },
+    ],
+    materials: [
+      'Museum-grade fine art paper',
+      'Archival quality pigment print',
+      'Premium protective packaging',
+    ],
+  };
+}
+
 function ShopPage() {
   const { categorySlug } = useParams();
   const navigate = useNavigate();
@@ -177,21 +208,7 @@ function ShopPage() {
   const activeHero = heroBanners[category];
 
   const handleAddToCart = (product: ShopProduct) => {
-    addToCart(
-      {
-        id: product.id,
-        title: product.title,
-        slug: product.slug,
-        image: product.image,
-        edition: product.edition,
-        size: product.size,
-        stock: product.stock,
-        description: product.description,
-        basePriceUsd: product.basePriceUsd,
-        category: product.category,
-      },
-      1,
-    );
+    addToCart(toFullProduct(product), 1);
 
     setAnimatingProductId(product.id);
 
@@ -437,7 +454,7 @@ function ShopPage() {
                           ? 'Remove from wishlist'
                           : 'Add to wishlist'
                       }
-                      onClick={() => toggleWishlist(product)}
+                      onClick={() => toggleWishlist(toFullProduct(product))}
                     >
                       <FiHeart />
                     </button>

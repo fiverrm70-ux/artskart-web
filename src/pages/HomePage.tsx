@@ -195,7 +195,7 @@ const fallbackFeaturedArtworks: FeaturedArtwork[] = fallbackProducts
     description: product.description,
     image: product.image,
     edition: product.edition,
-    size: product.size,
+    size: product.size || 'Fine Art Print',
     stock: product.stock,
     basePriceUsd: product.basePriceUsd,
   }));

@@ -70,6 +70,8 @@ const mapApiProductToCartProduct = (product: ApiProduct): Product => {
     gallery: gallery.length > 0 ? gallery : [mainImage],
     edition: '100 Prints Only',
     stock: product.stock,
+    size: product.sku || product.category?.name || 'Fine Art Print',
+    stockLeft: product.stock,
     description: product.shortDescription || product.description,
     story:
       product.description ||

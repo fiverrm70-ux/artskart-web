@@ -66,6 +66,7 @@ const reviews = [
 ];
 
 const fallbackProduct: DetailsProduct = {
+  size: 'Fine Art Print',
   ...fallbackProducts[0],
   category: fallbackProducts[0].category,
 };
