@@ -7,12 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: [
-      'http://localhost:5173',
-      'http://localhost:5174',
-      'https://artskart.netlify.app',
-      'https://artskart-web.netlify.app',
-    ],
+    origin: true,
     credentials: true,
   });
 
