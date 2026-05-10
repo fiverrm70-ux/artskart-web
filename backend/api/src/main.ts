@@ -11,6 +11,7 @@ async function bootstrap() {
       'http://localhost:5173',
       'http://localhost:5174',
       'https://artskart.netlify.app',
+      'https://artskart-web.netlify.app',
     ],
     credentials: true,
   });
