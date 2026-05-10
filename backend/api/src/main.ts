@@ -1,6 +1,6 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-import type { Request, Response, NextFunction } from 'express';
+import type { NextFunction, Request, Response } from 'express';
 
 import { AppModule } from './app.module';
 
@@ -14,19 +14,20 @@ async function bootstrap() {
       res.setHeader('Access-Control-Allow-Origin', origin);
     }
 
-    res.setHeader('Vary', 'Origin');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
+
     res.setHeader(
       'Access-Control-Allow-Headers',
       'Origin, X-Requested-With, Content-Type, Accept, Authorization',
     );
+
     res.setHeader(
       'Access-Control-Allow-Methods',
-      'GET, POST, PUT, PATCH, DELETE, OPTIONS',
+      'GET,POST,PUT,PATCH,DELETE,OPTIONS',
     );
 
     if (req.method === 'OPTIONS') {
-      res.status(204).end();
+      res.sendStatus(200);
       return;
     }
 
