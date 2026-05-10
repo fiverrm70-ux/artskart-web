@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'https://backendapi-production-3b68.up.railway.app',
 });
 
 api.interceptors.request.use((config) => {
