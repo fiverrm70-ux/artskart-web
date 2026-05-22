@@ -6,8 +6,26 @@ export type Product = {
   slug: string;
   imageUrl: string;
   price: number;
+  comparePrice?: number;
   stock: number;
+  sku?: string;
   isActive: boolean;
+  isFeatured: boolean;
+  artworkSize?: string;
+  artworkMaterial?: string;
+  printQuality?: string;
+  packaging?: string;
+  productStory?: string;
+  detailStyle?: string;
+  detailTheme?: string;
+  detailSize?: string;
+  detailMaterial?: string;
+  craftMaterials?: string;
+  certificatePoints?: string;
+  careGuidance?: string;
+  framingSupport?: string;
+  serviceNotes?: string;
+  reviewNotes?: string;
 };
 
 export type CreateProductPayload = {
@@ -23,6 +41,22 @@ export type CreateProductPayload = {
   isFeatured: boolean;
   isActive: boolean;
   categoryId: string;
+
+  artworkSize?: string;
+  artworkMaterial?: string;
+  printQuality?: string;
+  packaging?: string;
+  productStory?: string;
+  detailStyle?: string;
+  detailTheme?: string;
+  detailSize?: string;
+  detailMaterial?: string;
+  craftMaterials?: string;
+  certificatePoints?: string;
+  careGuidance?: string;
+  framingSupport?: string;
+  serviceNotes?: string;
+  reviewNotes?: string;
 };
 
 export type CreateProductImagePayload = {

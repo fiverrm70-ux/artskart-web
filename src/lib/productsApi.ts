@@ -31,6 +31,23 @@ export type ApiProduct = {
   sku?: string | null;
   isFeatured: boolean;
   isActive: boolean;
+
+  artworkSize?: string | null;
+  artworkMaterial?: string | null;
+  printQuality?: string | null;
+  packaging?: string | null;
+  productStory?: string | null;
+  detailStyle?: string | null;
+  detailTheme?: string | null;
+  detailSize?: string | null;
+  detailMaterial?: string | null;
+  craftMaterials?: string | null;
+  certificatePoints?: string | null;
+  careGuidance?: string | null;
+  framingSupport?: string | null;
+  serviceNotes?: string | null;
+  reviewNotes?: string | null;
+
   categoryId: string;
   category?: ApiCategory;
   images?: ApiProductImage[];

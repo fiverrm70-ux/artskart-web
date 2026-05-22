@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import {
   Button,
+  Divider,
   Form,
   Image,
   Input,
@@ -80,10 +81,7 @@ function ProductFormModal({ open, onClose, onSuccess }: ProductFormModalProps) {
       });
     } catch (error) {
       console.error(error);
-      message.error({
-        content: 'Main image upload failed',
-        key: 'mainUpload',
-      });
+      message.error({ content: 'Main image upload failed', key: 'mainUpload' });
     } finally {
       setUploadingMain(false);
     }
@@ -116,7 +114,37 @@ function ProductFormModal({ open, onClose, onSuccess }: ProductFormModalProps) {
     }
   };
 
-  const handleFinish = async (values: any) => {
+  type ProductFormValues = {
+    title: string;
+    slug: string;
+    description: string;
+    shortDescription?: string;
+    imageUrl: string;
+    price: number;
+    comparePrice?: number;
+    stock?: number;
+    sku?: string;
+    isFeatured?: boolean;
+    isActive?: boolean;
+    categoryId: string;
+    artworkSize?: string;
+    artworkMaterial?: string;
+    printQuality?: string;
+    packaging?: string;
+    productStory?: string;
+    detailStyle?: string;
+    detailTheme?: string;
+    detailSize?: string;
+    detailMaterial?: string;
+    craftMaterials?: string;
+    certificatePoints?: string;
+    careGuidance?: string;
+    framingSupport?: string;
+    serviceNotes?: string;
+    reviewNotes?: string;
+  };
+
+  const handleFinish = async (values: ProductFormValues) => {
     try {
       setSubmitting(true);
 
@@ -135,6 +163,22 @@ function ProductFormModal({ open, onClose, onSuccess }: ProductFormModalProps) {
         isFeatured: Boolean(values.isFeatured),
         isActive: values.isActive !== false,
         categoryId: values.categoryId,
+
+        artworkSize: values.artworkSize,
+        artworkMaterial: values.artworkMaterial,
+        printQuality: values.printQuality,
+        packaging: values.packaging,
+        productStory: values.productStory,
+        detailStyle: values.detailStyle,
+        detailTheme: values.detailTheme,
+        detailSize: values.detailSize,
+        detailMaterial: values.detailMaterial,
+        craftMaterials: values.craftMaterials,
+        certificatePoints: values.certificatePoints,
+        careGuidance: values.careGuidance,
+        framingSupport: values.framingSupport,
+        serviceNotes: values.serviceNotes,
+        reviewNotes: values.reviewNotes,
       });
 
       await Promise.all(
@@ -167,7 +211,7 @@ function ProductFormModal({ open, onClose, onSuccess }: ProductFormModalProps) {
       open={open}
       onCancel={onClose}
       footer={null}
-      width={820}
+      width={920}
       destroyOnHidden
     >
       <Form
@@ -178,6 +222,22 @@ function ProductFormModal({ open, onClose, onSuccess }: ProductFormModalProps) {
           stock: 0,
           isFeatured: false,
           isActive: true,
+          artworkSize: '13 × 19 inches',
+          artworkMaterial: 'Unframed Fine Art Print',
+          printQuality: '300 GSM Archival Paper',
+          packaging: 'Protective sleeve and secure courier packaging',
+          serviceNotes:
+            'Produced in small batches for consistency, quality and attention to detail.',
+          certificatePoints:
+            'Thank you card included\nHand-signed certificate of authenticity\nSigned and numbered artwork\nArtskart authenticity seal',
+          careGuidance:
+            'Keep away from direct sunlight\nFrame under glass for archival protection\nHandle with clean, dry hands\nStore flat in protective sleeve when not framed',
+          framingSupport:
+            'Framing advice and curated frame suggestions will be shared after purchase based on your region.',
+          craftMaterials:
+            'Print — 300 GSM archival quality paper\nBacking — support board when required\nProtection Sleeve — moisture-safe protection\nPackaging — secure courier packaging',
+          reviewNotes:
+            'Beautiful print quality. Looks even better in person.\nPackaging was excellent and the artwork feels truly premium.',
         }}
       >
         <Form.Item
@@ -186,23 +246,19 @@ function ProductFormModal({ open, onClose, onSuccess }: ProductFormModalProps) {
           rules={[{ required: true, message: 'Product title is required' }]}
         >
           <Input
-            placeholder="Royal Heritage Canvas"
+            placeholder="Vishnu and Lakshmi in Eternal Harmony"
             onChange={handleTitleChange}
           />
         </Form.Item>
 
-        <Form.Item
-          label="Slug"
-          name="slug"
-          rules={[{ required: true, message: 'Slug is required' }]}
-        >
-          <Input placeholder="royal-heritage-canvas" />
+        <Form.Item label="Slug" name="slug" rules={[{ required: true }]}>
+          <Input placeholder="vishnu-lakshmi-eternal-harmony" />
         </Form.Item>
 
         <Form.Item
           label="Category"
           name="categoryId"
-          rules={[{ required: true, message: 'Category is required' }]}
+          rules={[{ required: true }]}
         >
           <Select
             placeholder="Select category"
@@ -213,11 +269,7 @@ function ProductFormModal({ open, onClose, onSuccess }: ProductFormModalProps) {
           />
         </Form.Item>
 
-        <Form.Item
-          name="imageUrl"
-          hidden
-          rules={[{ required: true, message: 'Main image is required' }]}
-        >
+        <Form.Item name="imageUrl" hidden rules={[{ required: true }]}>
           <Input />
         </Form.Item>
 
@@ -276,23 +328,25 @@ function ProductFormModal({ open, onClose, onSuccess }: ProductFormModalProps) {
           )}
         </Form.Item>
 
+        <Divider>Basic Product Details</Divider>
+
         <Form.Item label="Short Description" name="shortDescription">
-          <Input placeholder="Short product intro" />
+          <Input placeholder="A timeless expression of harmony and divine balance." />
         </Form.Item>
 
         <Form.Item
           label="Description"
           name="description"
-          rules={[{ required: true, message: 'Description is required' }]}
+          rules={[{ required: true }]}
         >
-          <Input.TextArea rows={4} placeholder="Full artwork story/details" />
+          <Input.TextArea rows={4} placeholder="Full product description" />
         </Form.Item>
 
-        <Form.Item
-          label="Price"
-          name="price"
-          rules={[{ required: true, message: 'Price is required' }]}
-        >
+        <Form.Item label="Product Story" name="productStory">
+          <Input.TextArea rows={5} placeholder="Story section content" />
+        </Form.Item>
+
+        <Form.Item label="Price" name="price" rules={[{ required: true }]}>
           <InputNumber min={0} style={{ width: '100%' }} />
         </Form.Item>
 
@@ -306,6 +360,64 @@ function ProductFormModal({ open, onClose, onSuccess }: ProductFormModalProps) {
 
         <Form.Item label="SKU" name="sku">
           <Input placeholder="AK-001" />
+        </Form.Item>
+
+        <Divider>Frontend Product Detail Fields</Divider>
+
+        <Form.Item label="Artwork Size" name="artworkSize">
+          <Input placeholder="13 × 19 inches" />
+        </Form.Item>
+
+        <Form.Item label="Artwork Material" name="artworkMaterial">
+          <Input placeholder="Unframed Fine Art Print" />
+        </Form.Item>
+
+        <Form.Item label="Print Quality" name="printQuality">
+          <Input placeholder="300 GSM Archival Paper" />
+        </Form.Item>
+
+        <Form.Item label="Packaging" name="packaging">
+          <Input placeholder="Protective packaging" />
+        </Form.Item>
+
+        <Form.Item label="Detail - Style" name="detailStyle">
+          <Input placeholder="Indian Traditional" />
+        </Form.Item>
+
+        <Form.Item label="Detail - Theme" name="detailTheme">
+          <Input placeholder="Mythology, divinity, cosmic balance" />
+        </Form.Item>
+
+        <Form.Item label="Detail - Size" name="detailSize">
+          <Input placeholder="13 × 19 inches" />
+        </Form.Item>
+
+        <Form.Item label="Detail - Material" name="detailMaterial">
+          <Input placeholder="300 GSM archival paper" />
+        </Form.Item>
+
+        <Form.Item label="Craft & Materials" name="craftMaterials">
+          <Input.TextArea rows={5} placeholder="One point per line" />
+        </Form.Item>
+
+        <Form.Item label="Certificate Points" name="certificatePoints">
+          <Input.TextArea rows={4} placeholder="One point per line" />
+        </Form.Item>
+
+        <Form.Item label="Care Guidance" name="careGuidance">
+          <Input.TextArea rows={4} placeholder="One point per line" />
+        </Form.Item>
+
+        <Form.Item label="Framing Support" name="framingSupport">
+          <Input.TextArea rows={3} />
+        </Form.Item>
+
+        <Form.Item label="Service Strip Note" name="serviceNotes">
+          <Input.TextArea rows={2} />
+        </Form.Item>
+
+        <Form.Item label="Review Notes" name="reviewNotes">
+          <Input.TextArea rows={3} placeholder="One review per line" />
         </Form.Item>
 
         <Form.Item
