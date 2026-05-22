@@ -65,6 +65,22 @@ model Product {
   isFeatured       Boolean        @default(false)
   isActive         Boolean        @default(true)
 
+  artworkSize      String?
+  artworkMaterial  String?
+  printQuality     String?
+  packaging        String?
+  productStory     String?
+  detailStyle      String?
+  detailTheme      String?
+  detailSize       String?
+  detailMaterial   String?
+  craftMaterials   String?
+  certificatePoints String?
+  careGuidance     String?
+  framingSupport   String?
+  serviceNotes     String?
+  reviewNotes      String?
+
   categoryId       String
   category         Category       @relation(fields: [categoryId], references: [id])
 
@@ -143,31 +159,31 @@ model Address {
 }
 
 model Order {
-  id              String        @id @default(cuid())
-  orderNumber     String        @unique
-  userId          String
-  addressId       String?
-  subtotal        Float
-  shippingFee     Float         @default(0)
-  taxAmount       Float         @default(0)
-  totalAmount     Float
-  currency        String        @default("USD")
-  status          OrderStatus   @default(PENDING)
-  paymentStatus   PaymentStatus @default(PENDING)
-    razorpayOrderId   String?
+  id                String        @id @default(cuid())
+  orderNumber       String        @unique
+  userId            String
+  addressId         String?
+  subtotal          Float
+  shippingFee       Float         @default(0)
+  taxAmount         Float         @default(0)
+  totalAmount       Float
+  currency          String        @default("USD")
+  status            OrderStatus   @default(PENDING)
+  paymentStatus     PaymentStatus @default(PENDING)
+  razorpayOrderId   String?
   razorpayPaymentId String?
   razorpaySignature String?
 
-  customerName    String
-  customerEmail   String
-  customerPhone   String
-  shippingAddress String
+  customerName      String
+  customerEmail     String
+  customerPhone     String
+  shippingAddress   String
 
-  createdAt       DateTime      @default(now())
-  updatedAt       DateTime      @updatedAt
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
 
-  user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-  items           OrderItem[]
+  user              User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items             OrderItem[]
 
   @@index([userId])
   @@index([orderNumber])

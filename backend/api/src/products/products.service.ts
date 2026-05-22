@@ -10,9 +10,7 @@ export class ProductsService {
 
   async create(dto: CreateProductDto) {
     const existingProduct = await this.prisma.product.findUnique({
-      where: {
-        slug: dto.slug,
-      },
+      where: { slug: dto.slug },
     });
 
     if (existingProduct) {
@@ -20,9 +18,7 @@ export class ProductsService {
     }
 
     const category = await this.prisma.category.findUnique({
-      where: {
-        id: dto.categoryId,
-      },
+      where: { id: dto.categoryId },
     });
 
     if (!category) {
@@ -43,14 +39,26 @@ export class ProductsService {
         isFeatured: dto.isFeatured ?? false,
         isActive: dto.isActive ?? true,
         categoryId: dto.categoryId,
+
+        artworkSize: dto.artworkSize,
+        artworkMaterial: dto.artworkMaterial,
+        printQuality: dto.printQuality,
+        packaging: dto.packaging,
+        productStory: dto.productStory,
+        detailStyle: dto.detailStyle,
+        detailTheme: dto.detailTheme,
+        detailSize: dto.detailSize,
+        detailMaterial: dto.detailMaterial,
+        craftMaterials: dto.craftMaterials,
+        certificatePoints: dto.certificatePoints,
+        careGuidance: dto.careGuidance,
+        framingSupport: dto.framingSupport,
+        serviceNotes: dto.serviceNotes,
+        reviewNotes: dto.reviewNotes,
       },
       include: {
         category: true,
-        images: {
-          orderBy: {
-            sortOrder: 'asc',
-          },
-        },
+        images: { orderBy: { sortOrder: 'asc' } },
       },
     });
   }
@@ -59,15 +67,9 @@ export class ProductsService {
     return this.prisma.product.findMany({
       include: {
         category: true,
-        images: {
-          orderBy: {
-            sortOrder: 'asc',
-          },
-        },
+        images: { orderBy: { sortOrder: 'asc' } },
       },
-      orderBy: {
-        createdAt: 'desc',
-      },
+      orderBy: { createdAt: 'desc' },
     });
   }
 
@@ -79,39 +81,25 @@ export class ProductsService {
       },
       include: {
         category: true,
-        images: {
-          orderBy: {
-            sortOrder: 'asc',
-          },
-        },
+        images: { orderBy: { sortOrder: 'asc' } },
       },
-      orderBy: {
-        createdAt: 'desc',
-      },
+      orderBy: { createdAt: 'desc' },
     });
   }
 
   async findBySlug(slug: string) {
     return this.prisma.product.findUnique({
-      where: {
-        slug,
-      },
+      where: { slug },
       include: {
         category: true,
-        images: {
-          orderBy: {
-            sortOrder: 'asc',
-          },
-        },
+        images: { orderBy: { sortOrder: 'asc' } },
       },
     });
   }
 
   async getProductImages(productId: string) {
     const product = await this.prisma.product.findUnique({
-      where: {
-        id: productId,
-      },
+      where: { id: productId },
     });
 
     if (!product) {
@@ -119,20 +107,14 @@ export class ProductsService {
     }
 
     return this.prisma.productImage.findMany({
-      where: {
-        productId,
-      },
-      orderBy: {
-        sortOrder: 'asc',
-      },
+      where: { productId },
+      orderBy: { sortOrder: 'asc' },
     });
   }
 
   async addProductImage(productId: string, dto: CreateProductImageDto) {
     const product = await this.prisma.product.findUnique({
-      where: {
-        id: productId,
-      },
+      where: { id: productId },
     });
 
     if (!product) {

@@ -56,4 +56,64 @@ export class CreateProductDto {
   @IsString()
   @IsNotEmpty()
   categoryId: string;
+
+  @IsOptional()
+  @IsString()
+  artworkSize?: string;
+
+  @IsOptional()
+  @IsString()
+  artworkMaterial?: string;
+
+  @IsOptional()
+  @IsString()
+  printQuality?: string;
+
+  @IsOptional()
+  @IsString()
+  packaging?: string;
+
+  @IsOptional()
+  @IsString()
+  productStory?: string;
+
+  @IsOptional()
+  @IsString()
+  detailStyle?: string;
+
+  @IsOptional()
+  @IsString()
+  detailTheme?: string;
+
+  @IsOptional()
+  @IsString()
+  detailSize?: string;
+
+  @IsOptional()
+  @IsString()
+  detailMaterial?: string;
+
+  @IsOptional()
+  @IsString()
+  craftMaterials?: string;
+
+  @IsOptional()
+  @IsString()
+  certificatePoints?: string;
+
+  @IsOptional()
+  @IsString()
+  careGuidance?: string;
+
+  @IsOptional()
+  @IsString()
+  framingSupport?: string;
+
+  @IsOptional()
+  @IsString()
+  serviceNotes?: string;
+
+  @IsOptional()
+  @IsString()
+  reviewNotes?: string;
 }
